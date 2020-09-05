@@ -4,17 +4,19 @@ import ReactDOM from 'react-dom';
 
 
 
-const App =()=>{
+class App extends React.Component{
 
-  window.navigator.geolocation.getCurrentPosition(
-    position=>console.log(position),
-    err=>console.log(err)
-  );
-  
+  render(){
+    
+    window.navigator.geolocation.getCurrentPosition(
+      position=>console.log(position),
+      err=>console.log(err)
+    );
 
-  return <div>Assalaam aleykom</div>;
-};
+    return <div>Latitude: </div>
 
+  }
+}
 
 
 

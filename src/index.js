@@ -24,17 +24,24 @@ class App extends React.Component{
 
   render(){  
 
-    return (
+    if(this.state.errMsg && !this.state.lat && !this.state.long){
+      return <div>Error: {this.state.errMsg}</div>
+    }
+    
 
-      <div>
-      Latitude: {this.state.lat}
-      <hr></hr>
-      Longitude: {this.state.long}
-      <hr/>
-      Error:{this.state.errMsg}
-      </div>
-    );
+    if(!this.state.errMsg && this.state.lat &&this.state.long){
+      return(
+         <div>
+         Latitude:{this.state.lat}
+         <hr/>
+         Longitude:{this.state.long}
+         </div>
+         );  
 
+    };
+
+    return <div>Loading ...</div>
+    
   }
 }
 

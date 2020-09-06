@@ -22,11 +22,9 @@ class App extends React.Component{
     );
   }
 
-  componentDidUpdate(){
-    console.log("My component was just rendered. New fresh one.");
-  }
+ 
 
-  render(){  
+  renderContent(){
 
     if(this.state.errMsg && !this.state.lat && !this.state.long){
       return <div>Error: {this.state.errMsg}</div>
@@ -39,6 +37,16 @@ class App extends React.Component{
     };
 
     return <Spinner msg={"Please accept location request"}/>;
+
+  }
+
+  render(){  
+
+    return(
+      <div className="border red">
+        {this.renderContent()}
+      </div>
+    )    
     
   }
 }

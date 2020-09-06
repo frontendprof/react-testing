@@ -12,6 +12,10 @@ class App extends React.Component{
     this.state={lat:null,long:null,errMsg:''};
 
 
+  }
+
+  componentDidMount(){
+    
     window.navigator.geolocation.getCurrentPosition(
       position => {
         this.setState({lat:position.coords.latitude,long:position.coords.longitude});
@@ -20,6 +24,10 @@ class App extends React.Component{
         this.setState({errMsg:err.message})
       }
     );
+  }
+
+  componentDidUpdate(){
+    console.log("My component was just rendered. New fresh one.");
   }
 
   render(){  
